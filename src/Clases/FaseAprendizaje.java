@@ -21,13 +21,14 @@ public class FaseAprendizaje {
         for(int i=0;i<patrones.size();i++){
             x=new int[1][patrones.get(i).x[0].length];
             for(int j=0;j<x[0].length;j++){
-                x=op.scalar(patrones.get(i).x, -1);
+                x=patrones.get(i).x;
                 if(j%50==0){
                     System.out.println();
                 }
                 System.out.print(x[0][j]);
             }
             System.out.println("\n");
+            
             y=new int[1][patrones.get(i).y[0].length];
             for(int j=0;j<y[0].length;j++){
                 y[0][j]=patrones.get(i).y[0][j];
@@ -35,11 +36,11 @@ public class FaseAprendizaje {
             }
             System.out.println();
             
-            y=op.transpose(y);
+            matriz=op.max(x, y);
             
-            matriz=op.dot(y, x);    
+            //matriz=op.dot(y, x);    
             
-            System.out.println("Arreglo de pesos xi yi");
+            //System.out.println("Arreglo de pesos xi yi");
         
             op.print(matriz);
             

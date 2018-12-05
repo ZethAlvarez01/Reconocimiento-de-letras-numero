@@ -84,30 +84,23 @@ public class Matrix {
        }
    }
    
-      //Product matrix INT * INT
-   public int[][] dot(int[][] a, int[][] b){
-       if(a[0].length != b.length){
-           System.out.println("Error: Column of matrix A "+a[0].length+" is different from row "
-                            + "of matrix B "+b.length);
-           return null;
-       }else{
-        int[][] res=new int[a.length][b[0].length];
-        
-        for(int i=0;i<res.length;i++){
-            for(int j=0;j<res[0].length;j++){
-                int sum=0;
-                for(int k=0;k<a[0].length;k++){
-                    sum+=a[i][k]*b[k][j];
-                }
-                res[i][j]=sum;
-            }
-        }
-        
-        return res;
+   //Product matrix INT * INT
+   public int[][] max(int[][] a,int b[][]){
+       int[][] res=new int[b[0].length][a[0].length]; 
+       
+       System.out.println(res.length+" "+res[0].length);
+
+       for(int i=0;i<b[0].length;i++){
+           for(int j=0;j<res[0].length;j++){
+               res[i][j]=b[0][i]+(a[0][j]*(-1));
+           }
        }
+       
+       
+       return res;
    }
    
-   
+  
    //Transposed DOUBLE
    public double[][] transpose(double[][] a){
        double[][] res=new double[a[0].length][a.length];
